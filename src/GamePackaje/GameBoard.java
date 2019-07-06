@@ -5,7 +5,7 @@ import java.awt.*;
 
 public class GameBoard extends JFrame
 {
-    static int dimensio = 3; // размерность игрового поля
+    static int dimension = 3; // размерность игрового поля
     static int cellSize = 150; // размер клетки в пикселях
     private char gameField [][]; // матрица игрового поля
     private GameBotton gameBottons []; // массив кнопок
@@ -15,4 +15,6 @@ public class GameBoard extends JFrame
     {
         this.game = currentGame;
     }
+
+
 }
