@@ -10,4 +10,10 @@ public class Game
     {
         this.board= new GameBoard(this);
     }
+
+    public  void initGame()
+    {
+        gamePlayers [0] = new GamePlayers('x',true); // создаем игрока человека
+        gamePlayers [1] = new GamePlayers('o',false); // создаем игрока компьютер
+    }
 }
