@@ -163,6 +163,27 @@ public class GameBoard extends JFrame
         return  result;
     }
 
+    // проверка есть ли ещё пустые поля/клетки на игровом поле
+     boolean isFull()
+    { boolean result=true;
+
+        for (int i = 0; i < dimension; i++)
+        {
+            for (int j = 0; j < dimension; j++)
+            {
+                if (gameField[i][j]==nullSymbol)
+                {
+                    result = false;
+                    break;
+                }
+
+            }
+            if (!result) break;
+        }
+
+        return result;
+    }
+
 
 }
 
