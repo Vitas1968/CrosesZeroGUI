@@ -2,12 +2,14 @@ package GamePackaje;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Random;
 
 public class GameActionListener implements ActionListener
 {
     private int row; //номер стоки
     private int cell; //номер столбца
     private GameButton button; // ссылка на кнопку
+    private static Random random = new Random(); // для случайного хода
 
     public GameActionListener(int row, int cell, GameButton button)
     {
@@ -47,6 +49,34 @@ public class GameActionListener implements ActionListener
         {
             board.getGame().showMessage("You Win!");
         //чистим поле
+            board.emptyField();
+        } else{
+            board.getGame().passTurn();
+        }
+    }
+// ход компьютера
+    private void updateByAIDate(GameBoard board)
+    {
+        int x = -1;
+        int y = -1;
+            do {
+                x = random.nextInt(GameBoard.dimension);
+                y = random.nextInt(GameBoard.dimension);
+            } while(!board.isTurnable(x, y));
+
+            //  обновляем матрицу игры
+        board.updateGameField(x, y);
+
+        // обновить собержимое кнопки
+
+        int cellIndex = GameBoard.dimension * x+y;
+        board.gameBotton(cellIndex).setText(Character.toString(board.getGame().getCurrentPlayer().getPlayerSign()));
+
+        //проверка победы
+        if (board.checkWin())
+        {
+            board.getGame().showMessage("AI Win!");
+            //чистим поле
             board.emptyField();
         } else{
             board.getGame().passTurn();
