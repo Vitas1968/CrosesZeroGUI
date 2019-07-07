@@ -90,6 +90,14 @@ public class GameBoard extends JFrame
     {
         return game;
     }
+
+    // проверка что в это поле можно ходить
+    boolean isTurnable(int x, int y)
+    {
+        boolean result  = false;
+        if (gameField [x][y]==nullSymbol) result=true;
+        return  result;
+    }
 }
 
 
