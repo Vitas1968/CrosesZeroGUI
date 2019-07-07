@@ -19,6 +19,13 @@ public class GameBoard extends JFrame
         this.game = currentGame;
         initField();
     }
+    // геттер возвращающий кнопку по указанной позиции
+
+
+    public GameButton gameBotton(int position)
+    {
+        return gameBottons[position];
+    }
 
     // инциализация(отрисовка) игрового поля
     private void initField()
