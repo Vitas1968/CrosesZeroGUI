@@ -1,5 +1,7 @@
 package GamePackaje;
 
+import javax.swing.*;
+
 public class Game
 {
     private GameBoard board;  // ссылка на игровое поле
@@ -15,5 +17,28 @@ public class Game
     {
         gamePlayers [0] = new GamePlayers('x',true); // создаем игрока человека
         gamePlayers [1] = new GamePlayers('o',false); // создаем игрока компьютер
+    }
+
+    // метод передачи хода
+
+    void passTurn()
+    {
+        if (playerTurn==0)
+            playerTurn=1;
+        else
+            playerTurn=0;
+    }
+
+    //метод получения текущего игрова
+    public GamePlayers getCurrentPlayer()
+    {
+        return gamePlayers[playerTurn];
+    }
+
+    // метод показа сообщения
+
+    void showMessage(String messageText)
+    {
+        JOptionPane.showMessageDialog(board, messageText);
     }
 }
