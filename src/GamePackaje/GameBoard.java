@@ -109,7 +109,7 @@ public class GameBoard extends JFrame
     void updateGameField(int x, int y)
     { // получаем из игры текущего игровка, а у него символ которым он играет
         // и ставим по координатам x,y
-        gameField [x][y]= game.getCurrentPlayer().getPlayerSign();
+        gameField [y][x]= game.getCurrentPlayer().getPlayerSign();
     }
 
     // проверка победы
