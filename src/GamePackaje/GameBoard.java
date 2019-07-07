@@ -79,7 +79,7 @@ public class GameBoard extends JFrame
 
     //метод очистки игрового поля
     void emptyField()
-    {
+      {
         for (int i = 0; i < (dimension * dimension); i++)
         {
             gameBottons[i].setText("");
@@ -102,7 +102,7 @@ public class GameBoard extends JFrame
     boolean isTurnable(int x, int y)
     {
         boolean result  = false;
-        if (gameField [x][y]==nullSymbol) result=true;
+        if (gameField [y][x]==nullSymbol) result=true;
         return  result;
     }
     // обновление поля после хода игрока
