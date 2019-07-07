@@ -12,7 +12,7 @@ public class GameBoard extends JFrame
     private char gameField[][]; // матрица игрового поля
     private GameButton gameBottons[]; // массив кнопок
     private Game game; // ссылка на игру
-    static  char nullSymbol = '\u0000'; //пустой символ
+    static char nullSymbol = '\u0000'; //пустой символ
 
     public GameBoard(Game currentGame) throws HeadlessException
     {
@@ -69,6 +69,7 @@ public class GameBoard extends JFrame
 
     }
 
+
     //метод очистки игрового поля
     void emptyField()
     {
@@ -79,10 +80,15 @@ public class GameBoard extends JFrame
             int x = i / GameBoard.dimension;
             //вычисляем номер столбца
             int y = i % GameBoard.dimension;
-            gameField [x][y]= nullSymbol;
+            gameField[x][y] = nullSymbol;
 
         }
+    }
 
+    // возвращает экзепляр игры
+    public Game getGame ()
+    {
+        return game;
     }
 }
 
