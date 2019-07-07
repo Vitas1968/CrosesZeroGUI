@@ -98,6 +98,14 @@ public class GameBoard extends JFrame
         if (gameField [x][y]==nullSymbol) result=true;
         return  result;
     }
+    // обновление поля после хода игрока
+    void updateGameField(int x, int y)
+    { // получаем из игры текущего игровка, а у него символ которым он играет
+        // и ставим по координатам x,y
+        gameField [x][y]= game.getCurrentPlayer().getPlayerSign();
+    }
+
+
 }
 
 
