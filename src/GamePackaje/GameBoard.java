@@ -35,7 +35,7 @@ public class GameBoard extends JFrame
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setLayout(new BorderLayout());
         // панель управления игрой
-        JOptionPane controPanel = new JOptionPane();
+        JPanel controPanel = new JPanel();
         //кнопка - Новая игра
         JButton newGameButton = new JButton("Новая игра");
         // подключаем слушателя к кнопке
