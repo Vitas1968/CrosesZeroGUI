@@ -155,8 +155,8 @@ public class GameBoard extends JFrame
 
             for (int row = 0; row < dimension; row++)
             {
-                cols&=gameField[row][row] == playerSymbol;
-                rows&=gameField[row][row] == playerSymbol;
+                cols&=gameField[col][row] == playerSymbol;
+                rows&=gameField[row][col] == playerSymbol;
 
             }
             if (cols || rows)
