@@ -105,6 +105,64 @@ public class GameBoard extends JFrame
         gameField [x][y]= game.getCurrentPlayer().getPlayerSign();
     }
 
+    // проверка победы
+
+    boolean checkWin()
+    {
+        boolean result = false;
+        char playerSymbol = getGame().getCurrentPlayer().getPlayerSign();
+
+        if (checkWinDiagonals(playerSymbol) || checkWinLines(playerSymbol)) result = true;
+
+
+        return result;
+    }
+
+    // проверка выигрышной комбинации по диагоналям
+    private boolean checkWinDiagonals(char playerSymbol)
+    {
+
+        boolean leftRight, rightLeft,result=false;
+        leftRight = true;
+        rightLeft=true;
+        for (int i = 0; i < dimension; i++)
+        {
+            leftRight &= (gameField[i][i] == playerSymbol);
+            rightLeft &= (gameField[dimension-i-1][i] == playerSymbol);
+
+        }
+        if (leftRight || rightLeft) result =true;
+
+
+        return  result;
+    }
+    // проверка выигрышной комбинации по строкам и столбцам
+    private boolean checkWinLines(char playerSymbol)
+    {
+        boolean cols, rows, result=false;
+
+        for (int col = 0; col < dimension ; col++)
+        {
+            cols = true;
+            rows = true;
+
+            for (int row = 0; row < dimension; row++)
+            {
+                cols&=gameField[row][row] == playerSymbol;
+                rows&=gameField[row][row] == playerSymbol;
+
+            }
+            if (cols || rows)
+            {
+                result=true;
+                break;
+            }
+            if (result) break;
+
+        }
+        return  result;
+    }
+
 
 }
 
