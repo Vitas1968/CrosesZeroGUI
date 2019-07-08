@@ -67,9 +67,9 @@ public class GameActionListener implements ActionListener
             //  обновляем матрицу игры
         board.updateGameField(x, y);
 
-        // обновить собержимое кнопки
+        // обновить содержимое кнопки
 
-        int cellIndex = GameBoard.dimension * x+y;
+        int cellIndex = GameBoard.dimension * x + y;
         board.gameBotton(cellIndex).setText(Character.toString(board.getGame().getCurrentPlayer().getPlayerSign()));
 
         //проверка победы
