@@ -19,6 +19,12 @@ public class GameBoard extends JFrame
         this.game = currentGame;
         initField();
     }
+
+    public char[][] getGameField()
+    {
+        return gameField;
+    }
+
     // геттер возвращающий кнопку по указанной позиции
 
 
@@ -90,6 +96,7 @@ public class GameBoard extends JFrame
             gameField[x][y] = nullSymbol;
 
         }
+        if (!this.getGame().getCurrentPlayer().isRealPlayer()) this.getGame().passTurn();
     }
 
     // возвращает экзепляр игры
