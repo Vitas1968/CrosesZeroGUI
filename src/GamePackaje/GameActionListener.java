@@ -59,10 +59,89 @@ public class GameActionListener implements ActionListener
     {
         int x = -1;
         int y = -1;
+           /* do {
+                x = random.nextInt(GameBoard.dimension);
+                y = random.nextInt(GameBoard.dimension);
+            } while(!board.isTurnable(x, y));*/
+        // ход с учетом рейтинга клетки
+        int maxScoreFielX = -1;
+        int maxScoreFielY = -1;
+        int maxScore = 0;
+        char map [][] = board.getGameField();
+        char DOT_O = 'O';
+
+        for (int i = 0; i < GameBoard.dimension; i++)
+        {
+            for (int j = 0; j < GameBoard.dimension; j++)
+            { int fieldScore = 0;
+                if (map[i][j]==GameBoard.nullSymbol)
+                {
+                    // слева сверху
+                    if (i-1>=0 && j-1>=0 && map[i-1][j-1]==DOT_O)
+                    {
+
+                        fieldScore++;
+                        // верх
+                    }
+                    if (i-1>=0  && map[i-1][j]==DOT_O)
+                    {
+
+                        fieldScore++;
+                        //справа вверху
+                    }
+                    if (i-1>=0 && j+1<GameBoard.dimension && map[i-1][j+1]==DOT_O)
+                    {
+
+                        fieldScore++;
+                        // слева
+                    }
+                    if (j-1>=0  && map[i][j-1]==DOT_O)
+                    {
+
+                        fieldScore++;
+                        // справа
+                    }
+                    if (j+1<GameBoard.dimension  && map[i][j+1]==DOT_O)
+                    {
+
+                        fieldScore++;
+                        // слева снизу
+                    }
+                    if (i+1<GameBoard.dimension && j-1>=0  && map[i+1][j-1]==DOT_O)
+                    {
+                        fieldScore++;
+                        // снизу
+                    }
+                    if (i+1<GameBoard.dimension && map[i+1][j]==DOT_O)
+                    {
+                        fieldScore++;
+                        // снизу cправа
+                    }
+                    if (i+1<GameBoard.dimension && j+1<GameBoard.dimension  && map[i+1][j+1]==DOT_O)
+                    {
+                        fieldScore++;
+                    }
+                }
+                if (fieldScore>maxScore)
+                {
+                    maxScore=fieldScore;
+                    maxScoreFielX = j;
+                    maxScoreFielY = i;
+                }
+            }
+        }
+        if (maxScoreFielX != -1)
+        {
+            x=maxScoreFielX;
+            y=maxScoreFielY;
+        }
+        if (x == -1)
+        {
             do {
                 x = random.nextInt(GameBoard.dimension);
                 y = random.nextInt(GameBoard.dimension);
             } while(!board.isTurnable(x, y));
+        }
 
             //  обновляем матрицу игры
         board.updateGameField(x, y);
