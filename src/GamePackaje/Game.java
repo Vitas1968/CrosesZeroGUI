@@ -15,8 +15,8 @@ public class Game
 
     public  void initGame()
     {
-        gamePlayers [0] = new GamePlayers('x',true); // создаем игрока человека
-        gamePlayers [1] = new GamePlayers('o',false); // создаем игрока компьютер
+        gamePlayers [0] = new GamePlayers('X',true); // создаем игрока человека
+        gamePlayers [1] = new GamePlayers('O',false); // создаем игрока компьютер
     }
 
     // метод передачи хода
