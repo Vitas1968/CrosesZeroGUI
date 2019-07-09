@@ -23,10 +23,13 @@ public class Game
 
     void passTurn()
     {
-        if (playerTurn==0)
-            playerTurn=1;
-        else
-            playerTurn=0;
+//        if (playerTurn==0)
+//            playerTurn=1;
+//        else
+//            playerTurn=0;
+        // оптимизация кода
+        playerTurn=playerTurn==0 ? 1 : 0;
+
     }
 
     //метод получения текущего игрова
