@@ -1,5 +1,7 @@
 package GamePackaje;
 
+import GuiPackage.GameBoard;
+
 import javax.swing.*;
 
 public class Game
@@ -21,7 +23,7 @@ public class Game
 
     // метод передачи хода
 
-    void passTurn()
+    public void passTurn()
     {
 //        if (playerTurn==0)
 //            playerTurn=1;
@@ -40,7 +42,7 @@ public class Game
 
     // метод показа сообщения
 
-    void showMessage(String messageText)
+    public void showMessage(String messageText)
     {
         JOptionPane.showMessageDialog(board, messageText);
     }
